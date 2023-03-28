@@ -1,5 +1,31 @@
-th {
-    width: 40px;
-    height: 20px;
-    border: 1px;
+tr th {
+    background-color: lightseagreen;
+}
+
+tr td:first-child {
+    background-color: lightseagreen;
+}
+
+th, td {
+    width: 12%;
+    background-color: lightblue;
+}
+
+.table1 {
+    background-color: lightcoral;
+}
+.table2 {
+    background-color: aqua;
+}
+.table3 {
+    background-color: lightgoldenrodyellow;
+}
+.table4 {
+    background-color: lightsalmon;
+}
+.table5 {
+    background-color: lightslategrey;
+}
+.table6 {
+    background-color: lightgreen;
 }
