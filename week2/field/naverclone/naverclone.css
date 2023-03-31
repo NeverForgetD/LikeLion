@@ -1,0 +1,58 @@
+.searchengine {
+    width: 300px;
+    height: 40px;
+    margin-top: 0;
+}
+
+.login {
+    background: green;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+.banner {
+    width: 80%;
+    height: 75%;
+}
+.bannerSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logindiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.green {
+    color: green;
+}
+
+.news {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.boxex-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxes {
+    width: 120px;
+    height: 60px;
+    background-color: green;
+    margin: 10px;
+}
+
+.row1 {
+    display: flex;
+}
+.row2 {
+    display: flex;
+}
+.row3 {
+    display: flex;
+}
