@@ -70,7 +70,53 @@ body {
     opacity: 50%;
 }
 
+section {
+    padding: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
+.search-box {
+    width: 80vw;
+    height: 10vh;
+    background-color: rgb(242,203,73);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-bar {
+    width: 50vw;
+    height: 5vh;
+    background-color: rgb(230,233,235);
+    display: flex;
+    align-items: center;
+}
+
+.search-bar span {
+    color: gray;
+    margin-left: 20px;;
+}
+
+.search-btn {
+    width: 10vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(62,62,64);
+    border-radius: 10px;
+}
+.search-btn span {
+    font-size: large;
+}
+.search-btn:last-child {
+    background-color:rgb(242,203,73);
+    border: solid;
+    border-color: rgb(62,62,64);
+}
 
 
 .footer {
