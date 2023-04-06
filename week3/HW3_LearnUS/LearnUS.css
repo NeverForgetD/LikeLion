@@ -171,7 +171,6 @@ section {
 }
 
 .course-module img {
-    /*width:15vw;*/
     object-fit: cover;
 }
 .module-text-box {
