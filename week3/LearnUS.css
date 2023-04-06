@@ -1,7 +1,13 @@
+HTML {
+    font-size: 12px;
+}
+
 body {
-    margin: 0;
+    margin: 0 auto;
     height: auto;
 }
+
+/* nav */
 
 .nav-box {
     display: flex;
@@ -46,28 +52,40 @@ body {
     margin-right: 15vw;
 }
 
-.banner {
-    width:100vw;
+/* header */
+
+.banner-container {
     position: relative;
-    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banner {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
 }
 
 .arrows-container {
-    position: relative;
-    top: -250px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10vw;
+    position: absolute;
+    top: 50%;
+    width: 80%;
 }
 
 .arrows {
     font-size: 60px;
+    opacity: 60%;
 }
 
 .arrows:hover {
-    opacity: 50%;
+    opacity: 100%;
 }
+
+/* section1 */
 
 section {
     padding: 5vh 10vw;
@@ -106,7 +124,7 @@ section {
     border-radius: 10px;
 }
 .search-btn span {
-    font-size:small;
+    font-size: 1.2rem;
 }
 .search-btn-fisrt {
     color: rgb(230,233,235);
@@ -116,6 +134,8 @@ section {
     border: solid;
     border-color: rgb(62,62,64);
 }
+
+/* section2 */
 
 .course-box {
     display: flex;
@@ -131,7 +151,7 @@ section {
 
 .course-upper-box span {
     font-weight: bold;
-    font-size: large;
+    font-size: 1.5rem;
 }
 
 .course-lower-box {
@@ -146,9 +166,13 @@ section {
     flex-direction: column;
     border: solid 1px;
     border-color: gray;
+    border-radius: 1rem;
+    overflow: hidden;
 }
+
 .course-module img {
-    width:15vw;
+    /*width:15vw;*/
+    object-fit: cover;
 }
 .module-text-box {
     display: flex;
@@ -157,11 +181,15 @@ section {
 }
 .gray-font {
     color: gray;
-    font-size: small;
+    font-size: 0.8rem;
 }
 .module-text-main {
     height: 10vh;
     margin: 10px 0;
+}
+
+.module-text-main span {
+    font-size: 1.2rem;
 }
 
 .module-date {
@@ -169,25 +197,36 @@ section {
     border-top: solid 1px gray;
     padding: 5px;
 }
-
-
-
-
-
+/* footer */
 .footer {
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-around;
     height:10vh;
-    width: 100vw;
-    /*
-    position: absolute;
-    bottom: 0;
-    */
-    
+    width: 100%;
 }
 
 .footer-text {
     color: rgb(230,233,235);
+}
+
+
+/* effect */
+.nav-option {
+    transition: all 0.4s;
+}
+.nav-option:hover {
+    scale: 1.1;
+    transition: all 0.4s;
+}
+
+.course-module {
+    transition: all 0.4s;
+}
+
+.course-module:hover {
+    scale:1.1;
+    border: 2px solid gray;
+    transition: all 0.4s;
 }
