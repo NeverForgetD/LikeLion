@@ -17,7 +17,7 @@ for i in range(1, num+1):
 
 
 #2, 3
-id = input('주민번호를 입력해주세요')
+id = input('주민번호를 입력해주세요>>>')
 print('year :', id[0:2])
 print('month :', id[2:4])
 print('day :', id[4:6])
