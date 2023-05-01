@@ -1,43 +1,95 @@
 import datetime
 
-# 유니코드 클라스 만들어서 각 inputHandle 함수에서 참조
+def handleID(id):
+    retry = True
+    pt1 = ord('가')
+    pt2 = ord('힣')
+    for i in id:
+        if pt1 <= ord(i) <= pt2 and 2 <= len(id) <= 4:
+            retry = False
+        return retry
 
-class handleInput():
-    def __init__(self, id, password, email, studentID):
-        self.id = id
-        self.password = password
-        self.email = email
-        self.studentID = studentID
+def handlePassword(password):
+    retry = True
+    flag = 0
+    pt1 = ord('!')
+    pt2 = ord('@')
+    pt3 = ord('#')
+    pt4 = ord('$')
+    if ord('A') <= ord(password[0]) <= ord('Z'):
+        flag+=1
+    if len(password) >= 8:
+        flag+=1
+    for i in password:
+        index = ord(i)
+        if index == pt1 or index == pt2 or index == pt3 or index == pt4:
+            flag+=1
+    if flag >= 3:
+        retry = False
     
+def handlePasswordTwice(password1, password2):
+    retry = True
+    if password1 == password2:
+        retry = False
+    return retry
 
-    retry = False # = none?
-
-    def handleID(self, id):
-        for i in id:
-            if ord('가') <= ord(i) <= ord('힣') and 2 <= len(id) <= 4:
-                return True
+def handleEmail(email):
+    retry = False
+    flag = 0
+    pt1 = ord('0')
+    pt2 = ord('9')
+    pt3 = ord('a')
+    pt4 = ord('z')
+    pt5 = ord('A')
+    pt6 = ord('Z')
+    pt7 = ord('.')
+    for i in email:
+        index = ord(i)
+        if not (pt1 <= index <= pt2 or pt3 <= index <= pt4 or pt5 <= index <= pt6 or index == pt7):
+            if index == ord('@'):
+                flag+=1
             else:
                 retry = True
+                break
+    if not email[-4:] == '.com':
+        retry = True
+    if not flag ==  1:
+        retry = True
 
-    def handlePassword(self, password):
-        if password[0]
-
-        len(a)
-        
-# !, @, #, $
-# 033 064 035 036
-
-    
-    
-          
+    return retry
 
 
 def getInput():
-    id = input("이름을 입력해주세요\n")
-    password1 = input('비밀번호를 입력해주세요\n')
-    password2 = input('확인을 위해 다시 한 번 입력해주세요\n')
-    email = input("이메일 주소를 입력해주세요\n")
-    studentcode = input("학번을 입력해주세요\n")
+    id = input("이름을 입력해주세요>>>")
+    password1 = input('비밀번호를 입력해주세요>>>')
+    password2 = input('확인을 위해 다시 한 번 입력해주세요>>>')
+    email = input("이메일 주소를 입력해주세요>>>")
+
+    return [id, password1, password2, email]
+
+def handleInput(info):
+    retry = False
+    if handleID(info[0]):
+        print('아이디 제대로x')
+        retry = True
+    if not info[1] == info[2]:
+        print('패스워드가 다르다')
+        etry = True
+    else:
+        if handlePassword(info[1]):
+            print('패스워드 제대로x')
+            etry = True
+    if handleEmail(info[3]):
+        print('email 제대로 x')
+        etry = True
+    if not len(info) == 4:
+        print('정보가 부족해요...')
+        retry = True
+    
+    if not retry:
+        return [info[0], info[1], info[3]]
+    else:
+        return retry
 
 
 
@@ -50,14 +102,28 @@ def create_membership():
     
     users = []
     user = {}
-		# user 딕셔너리에 username, password, email을 아래 주어진 제한 조건에 알맞게 입력받는 코드를 작성하세요.
-	  # user 딕셔너리 값에는 username, password, email, stnr_date 총 4가지 값이 저장되어야 합니다.
+	# user 딕셔너리에 username, password, email을 아래 주어진 제한 조건에 알맞게 입력받는 코드를 작성하세요.
+	# user 딕셔너리 값에는 username, password, email, stnr_date 총 4가지 값이 저장되어야 합니다.
 
-
+    info = getInput()
+    data = handleInput(info)
+    if data:
+        #retry
+        print('다시 시도해주세요')
+        print(data)
+    else:
+        user['username'] = data[0]
+        user['password'] = data[1]
+        user['email'] = data[2]
+        user['stnr_date'] = stnr_date
 
     users.append(user)
 
     return users
+
+#고칠 부분
+# 에러 메시지가 하나 입력할 때마다 다시 들어가게
+# 전체 에러 / 좋은 입력이 오류로 반응
 
 """
 id 제한 조건
