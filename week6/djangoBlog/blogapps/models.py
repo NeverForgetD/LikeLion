@@ -4,7 +4,8 @@ from django.db import models
 class Blog(models.Model):
     title = models.CharField(max_length=1000) # 제목
     contents = models.TextField() # 본문
+    playtime = models.IntegerField(default=0) # 플레이타임
     updated_at = models.DateTimeField(auto_now=True) #글 작성 시간
 
     def summary(self):
-        return self.contents[:100]
+        return self.contents[:20]

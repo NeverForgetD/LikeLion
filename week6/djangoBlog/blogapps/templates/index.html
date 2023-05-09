@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Game Freak</h1>
+    <h3>종엽이의 게임 일기</h3>
+
+    <table border="1" align="center">
+        <th bgcolor="skyblue">제목</th>
+        <th bgcolor="skyblue">내용</th>
+        <th bgcolor="skyblue">플레이타임</th>
+        <th bgcolor="skyblue">작성 시간</th>
+
+        {% for blog in blogs%}
+        <tr>
+            <td><a href="{%url 'detail' blog.id %}">{{blog.title}}</a></td>
+            <td>{{blog.summary}}...</td>
+            <td>{{blog.playtime}}</td>
+            <td>{{blog.updated_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href='{%url 'new'%}'><button>글 쓰기</button></a>
+</body>
+</html>

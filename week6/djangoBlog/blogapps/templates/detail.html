@@ -8,7 +8,10 @@
 </head>
 <body>
     <h1>{{blog.title}}</h1>
-    {{blog.contents}}
-    {{blog.updated_at}}
+    <div>{{blog.contents}}</div>
+    <p>플레이타임:{{blog.playtime}}시간</p>
+    <p>{{blog.updated_at}}</p>
+
+    <a href='{%url 'home'%}'><button>홈으로</button></a>
 </body>
 </html>

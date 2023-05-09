@@ -11,8 +11,9 @@
 
     <form action="{%url 'create' %}" method="post">
         {%csrf_token%}
-        제목:<input type="text" name="title">
-        본문:<textarea type="text" name="contents" cols="30" rows="10"></textarea>
+        <p>제목:<input type="text" name="title"></p>
+        <p>플레이타임:<input type="number" name="playtime"></p>
+        <p>본문:<textarea type="text" name="contents" cols="30" rows="10"></textarea></p>
         <button type="submit">submit</button>
 </body>
 </html>
