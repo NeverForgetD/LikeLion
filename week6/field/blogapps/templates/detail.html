@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieHolic</title>
+    <style>
+        body{text-align: center;padding-top: 30px;}
+    </style>
+</head>
+<body>
+    <div>
+        <h1>{{movie.title}}</h1>
+        <br>
+        예매율: {{movie.r_rate}}
+        <br>
+        현재상영중: {{movie.status}}
+        <br>
+        후기: {{movie.review}}
+        <br><br>
+        <a href="{% url 'home' %}">
+            <button style="margin-top:10px;">홈으로</button>
+        </a>
+    </div>
+    <div id="comment_container">
+        <h4>댓글 작성</h4>
+
+        <!-- 댓글 목록 -->
+        {% for comment in movie.comment_set.all %}
+        <div id="comment_index" style="padding:10px 30px 10px 50px;border-bottom: 1px solid rgb(206, 203, 203); display: flex;">
+            <div style="width:50%;">{{comment.comment}}</div>
+            <div style="width:20%;text-align:center;">익명</div>
+            <div style="width:30%;">{{comment.created_at}}</div>
+        </div>
+        {% endfor %}
+
+        <!-- 댓글 작성 -->
+        <form method="POST" action="{% url 'comment' movie.id %}">
+            {% csrf_token %}
+            <input type="text" placeholder="댓글을 달아주세요." name="comment">
+            <button type="submit">입력</button>
+        </form>
+    </div>
+</body>
+</html>

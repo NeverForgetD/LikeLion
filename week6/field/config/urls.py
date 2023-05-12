@@ -20,8 +20,8 @@ from blogapps.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='home'),
-    path('<str:id>', detail, name='detail'),
-    path('new/', new, name='new'),
+    path('', home, name='home'),
+    path('detail/<str:movie_id>', detail, name='detail'),
     path('create/', create, name='create'),
+    path('comment/<str:movie_id>/', comment, name='comment')
 ]
