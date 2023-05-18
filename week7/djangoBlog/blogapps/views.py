@@ -34,3 +34,8 @@ def comment(request, game_id):
         new_comment.created_at = timezone.now()
         new_comment.save()
     return redirect('detail', game_id)
+
+
+def edit(request, game_id):
+    edit_game = get_object_or_404(Game, pk=game_id)
+    return render(request, 'edit.html', {'game':edit_game})
