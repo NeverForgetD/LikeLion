@@ -13,6 +13,9 @@
     </style>
 </head>
 <body>
+{% extends 'base.html' %}
+{% block content %}
+
     <h1>Game Freak</h1>
     <div>총 게시물 수 : {{count}}</div>
     <section style="margin:30px 15% 20px 15%;">
@@ -47,5 +50,6 @@
 
     {% endif %}
 
+{% endblock %}
 </body>
 </html>

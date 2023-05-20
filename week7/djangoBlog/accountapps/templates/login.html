@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+{% extends 'base.html' %}
+{% block content %}
+
     <!--'login' url로 POST 요청-->
     <form action = "{% url 'login' %}" method = "POST">
 		{% csrf_token %}
@@ -14,5 +17,7 @@
         pw: <input type="password" name="password"> <br/>
         <input type="submit" value="로그인">
     </form>
+
+{% endblock %}
 </body>
 </html>

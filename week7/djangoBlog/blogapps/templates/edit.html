@@ -11,6 +11,9 @@
     </style>
 </head>
 <body>
+{% extends 'base.html' %}
+{% block content %}
+
     <form action="{% url 'update' game.id%}" method="POST">
         {% csrf_token %}
         <p>제목: <input type="text" name="title" value="{{game.title}}"></p>
@@ -21,5 +24,7 @@
     <a href="{% url 'home' %}">
         <button style="margin-top:10px;">홈으로</button>
     </a>
+
+{% endblock %}
 </body>
 </html>
