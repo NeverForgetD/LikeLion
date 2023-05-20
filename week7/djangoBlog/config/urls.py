@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blogapps.views import *
+from accountapps.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,13 @@ urlpatterns = [
     path('detail/<str:game_id>', detail, name='detail'),
     path('create/', create, name='create'),
     path('comment/<str:game_id>/', comment, name='comment'),
+
+    path('edit/<str:game_id>/', edit, name='edit'),
+    path('update/<str:game_id>/', update, name='update'),
+    path('delete/<str:game_id>', delete, name='delete'),
+
+
+    path('login/', login, name='login'),
+    path('logout/', logout, name='logout'),
+    path('signup/', signup, name='signup'),
 ]

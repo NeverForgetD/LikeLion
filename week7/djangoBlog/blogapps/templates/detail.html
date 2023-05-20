@@ -39,6 +39,9 @@
             <input type="text" placeholder="댓글을 달아주세요." name="comment">
             <button type="submit">입력</button>
         </form>
+
+        <a href="{% url 'edit' game.id%}">edit</a>
+        <a href="{% url 'delete' game.id%}">Delete</a>
     </div>
 </body>
 </html>
