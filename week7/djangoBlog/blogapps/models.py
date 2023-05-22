@@ -20,6 +20,7 @@ class Comment(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     created_at = models.DateTimeField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.comment

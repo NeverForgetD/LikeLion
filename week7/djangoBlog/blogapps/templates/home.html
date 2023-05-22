@@ -15,40 +15,31 @@
 <body>
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>Game Freak</h1>
-    <div>총 게시물 수 : {{count}}</div>
+    <div style="text-align: center;">총 게시물 수 : {{count}}</div>
     <section style="margin:30px 15% 20px 15%;">
         <div style="padding:10px 30px 10px 50px;border-bottom: 1px solid rgb(206, 203, 203); display: flex; background-color:rgb(235, 235, 235);">
-            <div style="width:50%;">Game</div>
+            <div style="width:30%; text-align: center;">Game</div>
             <div style="width:20%; text-align: center;">Playtime</div>
-            <div style="width:30%;">Review</div>
+            <div style="width:30%; text-align: center;">Review</div>
+            <div style="width:20%; text-align: center;">작성자</div>
         </div>
         {% for game in games %}
         <a href="{% url 'detail' game.id %}">
         <div style="padding:10px 30px 10px 50px;border-bottom: 1px solid rgb(206, 203, 203); display: flex;">
-            <div style="width:50%;">{{game.title}}</div>
+            <div style="width:30%; text-align: center;">{{game.title}}</div>
             <div style="width:20%; text-align: center;">{{game.playtime}}</div>
             <div style="width:30%; text-align: center;">{{game.summary}}...</div>
+            <div style="width:20%; text-align: center;">{{game.author}}</div>
         </div>
         </a>
         {% endfor %}
     </section>
     <div style="margin-right:15%;margin-bottom: 40px;overflow: hidden;">
+        <!--로그인상태-->
+        {% if user.is_authenticated %}
         <a href="{% url 'create' %}"><button style="float:right;">새 게시물</button></a>
+        {% endif %}
     </div>
-
-    <!--로그인 상태-->
-    {% if user.is_authenticated %}
-    <p>안녕하세요, {{ user.username }} 님! </p>
-    <a href="{% url 'logout' %}">Logout</a>
-    <a href='{% url 'create' %}'>Create</a>
-    <!--로그아웃 상태-->
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
-
-    {% endif %}
 
 {% endblock %}
 </body>
