@@ -1,0 +1,29 @@
+body {
+    padding: 0;
+}
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+
+    border: solid;
+    border-width: 2px 0 2px 0;
+    margin-bottom: 30px;
+}
+.nav_title{
+    font-size: large;
+}
+
+button{
+    border-radius: 10px;
+}
+button:hover{
+    background-color: lightblue;
+}
+
+.detail_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

@@ -10,35 +10,54 @@
     </style>
 </head>
 <body>
-    <div>
-        <h1>{{game.title}}</h1>
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="detail_container">
+    <span style="background: #F9F7F6; border-left: 0.5em solid lightblue; padding: 0.5em;"><h1>{{game.title}}</h1></span>
         <br>
-        Playtime: {{game.playtime}} H
+    <p><span style="border-radius: 5px;padding: 0.6em 1em;background: #F1F1F3;">Playtime: {{game.playtime}} (Hours)</span></p>
         <br>
-        후기: {{game.review}}
-        <br><br>
-        <a href="{% url 'home' %}">
-            <button style="margin-top:10px;">홈으로</button>
-        </a>
+    <span style="border-radius: 5px;padding: 0.6em 1em;background: #F1F1F3;">후기: {{game.review}}</span>
+        <br>
     </div>
     <div id="comment_container">
-        <h4>댓글 작성</h4>
-
         <!-- 댓글 목록 -->
+        <div id="comment_index" style="padding:10px 30px 10px 50px;border-bottom: 1px solid rgb(206, 203, 203); display: flex; background-color: lightblue;">
+            <div style="width:50%;">댓글</div>
+            <div style="width:20%;text-align:center;">작성자</div>
+            <div style="width:30%;">작성시간</div>
+        </div>
         {% for comment in game.comment_set.all %}
         <div id="comment_index" style="padding:10px 30px 10px 50px;border-bottom: 1px solid rgb(206, 203, 203); display: flex;">
             <div style="width:50%;">{{comment.comment}}</div>
-            <div style="width:20%;text-align:center;">익명</div>
+            <div style="width:20%;text-align:center;">{{comment.author}}</div>
             <div style="width:30%;">{{comment.created_at}}</div>
         </div>
         {% endfor %}
+        <br/>
 
+        <!--작성자일 때-->
+        {% if user == game.author %}
+        <a href="{% url 'edit' game.id%}"><button>수정하기</button></a>
+        <a href="{% url 'delete' game.id%}"><button>게시글 삭제</button></a>
+
+        {% else %}
         <!-- 댓글 작성 -->
         <form method="POST" action="{% url 'comment' game.id %}">
             {% csrf_token %}
             <input type="text" placeholder="댓글을 달아주세요." name="comment">
             <button type="submit">입력</button>
         </form>
+
+        {% endif %}
     </div>
+
+    <a href="{% url 'home' %}">
+        <button style="margin-top:10px;">홈으로</button>
+    </a>
+
+{% endblock %}
+
 </body>
 </html>
