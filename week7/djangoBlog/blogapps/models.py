@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Game(models.Model):
     title = models.CharField(max_length=100)
-    playtime = models.FloatField()
+    playtime = models.IntegerField()
     review = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
